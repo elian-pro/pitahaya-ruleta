@@ -13,10 +13,6 @@ COPY index.html /usr/share/nginx/html/index.html
 RUN chmod -R 755 /usr/share/nginx/html && \
     chown -R nginx:nginx /usr/share/nginx/html
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
-
 # Expose port 80
 EXPOSE 80
 
