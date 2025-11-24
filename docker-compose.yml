@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  zebra-dashboard:
+    build: .
+    container_name: zebra-panel
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - TZ=America/Merida
+    networks:
+      - zebra-network
+
+networks:
+  zebra-network:
+    driver: bridge
